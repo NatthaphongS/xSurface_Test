@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap"
+      rel="stylesheet"
+    />
+    <title>Document</title>
+    <style>
+      * {
+        font-family: 'Roboto Mono', monospace;
+      }
+      li {
+        color: green;
+        font-size: 20px;
+      }
+      mark {
+        background-color: #5b0f00;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <ul id="output"></ul>
+    <script>
+      function formatAndSortData(arrDatas) {
+        const filterData = arrDatas.filter(
+          (data) => data.age % 3 == 0 && data.age < 30
+        );
+        const sortData = filterData.sort((a, b) => a.age - b.age);
+        const output = sortData.map(
+          (data) =>
+            `<li> This is <u>${data.name}</u>, <mark >It correctly outputs from question C.</mark></li>`
+        );
+        return output;
+      }
+      const inputC = [
+        { name: 'A', age: '30' },
+        { name: 'B', age: '9' },
+        { name: 'C', age: '20' },
+        { name: 'D', age: '18' },
+        { name: 'E', age: '11' },
+        { name: 'F', age: '60' },
+        { name: 'G', age: '27' },
+        { name: 'H', age: '90' },
+        { name: 'I', age: '21' },
+        { name: 'J', age: '12' },
+      ];
+      const result = formatAndSortData(inputC);
+      const outputDiv = document.getElementById('output');
+      outputDiv.innerHTML = result.join('');
+    </script>
+  </body>
+</html>
